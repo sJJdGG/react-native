@@ -56,6 +56,17 @@ public class ReactViewManager extends ViewGroupManager<ReactViewGroup> {
     view.setFocusable(accessible);
   }
 
+  @ReactProp(name = "isTVSelectable", defaultBoolean = true)
+  public void setTVSelectable(ReactViewGroup view, boolean isTVSelectable) {
+    if (isTVSelectable) {
+      view.setFocusable(true);
+      view.setFocusableInTouchMode(true);
+    } else {
+      view.setFocusable(false);
+      view.setFocusableInTouchMode(false);
+    }
+  }
+
   @ReactProp(name = "hasTVPreferredFocus")
   public void setTVPreferredFocus(ReactViewGroup view, boolean hasTVPreferredFocus) {
     if (hasTVPreferredFocus) {
